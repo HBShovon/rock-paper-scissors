@@ -4,33 +4,57 @@ const btnPaper = document.querySelector(".paper");
 const btnScissor = document.querySelector(".scissor");
 const btn = document.querySelectorAll(".btn");
 
-function getComputerChoice() {
-  let num = Math.floor(Math.random() * 3);
-  if (num == 0) {
-    return "rock";
-  } else if (num == 1) {
-    return "paper";
-  } else if (num == 2) {
-    return "scissor";
+// function getComputerChoice() {
+//   let num = Math.floor(Math.random() * 3);
+//   if (num == 0) {
+//     return "rock";
+//   } else if (num == 1) {
+//     return "paper";
+//   } else if (num == 2) {
+//     return "scissor";
+//   }
+// }
+
+// const computerChoice = getComputerChoice();
+// console.log(computerChoice);
+
+btnRock.addEventListener("click", playRound);
+btnPaper.addEventListener("click", playRound);
+btnScissor.addEventListener("click", playRound);
+
+// function getPlayerChoice(e) {
+//   let choice = e.target.textContent;
+
+//   console.log(choice);
+
+//   return choice;
+// }
+
+function playRound(e) {
+  function getComputerChoice() {
+    let num = Math.floor(Math.random() * 3);
+    if (num == 0) {
+      return "rock";
+    } else if (num == 1) {
+      return "paper";
+    } else if (num == 2) {
+      return "scissor";
+    }
   }
-}
+  const computerChoice = getComputerChoice();
+  console.log(computerChoice);
 
-const computerChoice = getComputerChoice();
-console.log(computerChoice);
+  //   function getPlayerChoice(e) {
+  //     let choice = e.target.textContent;
 
-btnRock.addEventListener("click", getPlayerChoice);
-btnPaper.addEventListener("click", getPlayerChoice);
-btnScissor.addEventListener("click", getPlayerChoice);
+  //     console.log(choice);
 
-function getPlayerChoice(e) {
-  let choice = e.target.textContent;
+  //     return choice;
+  //   }
 
-  console.log(choice);
+  const humanChoice = e.target.textContent.toLowerCase();
+  console.log(humanChoice);
 
-  return choice;
-}
-
-function playRound(humanChoice, computerChoice) {
   if (humanChoice == computerChoice) {
     console.log("THE GAME IS DRAW");
   } else if (humanChoice == "rock" && computerChoice == "scissor") {
